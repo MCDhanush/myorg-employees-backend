@@ -1,6 +1,7 @@
 require("dotenv").config()
 const express = require("express")
 const db= require("./db/connect.js")
+import cors from "cors"
 
 // import route
 const employeesRoutes = require("./routes/employee.route.js")
@@ -14,7 +15,7 @@ app.get(("/"),(req,res)=>{
 
 // import connection
 db()
-
+app.use(cors())
 
 // middleware
 app.use(express.json())
